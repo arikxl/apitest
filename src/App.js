@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import './App.css';
+import { getData } from './service/api';
 
 function App() {
+
+  const [array, setArray] = useState([])
+
+  useEffect(() => {
+    const data = getData();
+    // setArray(data)
+    console.log('data:', array)
+  },[])
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      API
+      {array &&  array.length}
+      
+      <div className="wrapper">
+        <select>
+          <option>a</option>
+          <option>b</option>
+          <option>c</option>
+        </select>
+
+      </div>
     </div>
   );
 }
